@@ -1,0 +1,27 @@
+{
+    "name": "profile-card-component-main",
+    "version": "1.0.0",
+    "description": "this is an example for a static website",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "css:scss": "node-sass --output-style compressed -o dist src/scss",
+        "css:autoprefixer": "postcss -u autoprefixer -r dist/*.css",
+        "css:lint": "stylelint src/scss/*.scss --syntax scss || true",
+        "watch:css": "onchange \"src/scss\" -- npm run build:css",
+        "build:css": "npm run css:lint && npm run css:scss && npm run css:autoprefixer",
+        "serve": "browser-sync start --server \"dist\" --files \"dist\"",
+        "watch": "run-p serve watch:css"
+    },
+    "author": "Juan Pablo Castano",
+    "license": "ISC",
+    "devDependencies": {
+        "autoprefixer": "^9.8.6",
+        "browser-sync": "^2.26.14",
+        "node-sass": "^5.0.0",
+        "npm-run-all": "^4.1.5",
+        "onchange": "^7.1.0",
+        "postcss-cli": "^8.3.1",
+        "stylelint": "^13.9.0"
+    }
+}
